@@ -18,4 +18,610 @@ index.html
   #legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
   #info{position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 120px);background:rgba(255,255,255,.9);border-radius:14px;padding:8px 14px;font-size:13px;color:#2b2b2b;min-width:120px;text-align:center}
   .tag.nb{box-shadow:0 0 0 3px rgba(200,62,43,.45)}
-  #dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 12px);width:calc(100% - 24px);max-width:820px;background:rgba(250,245,232,.78);backdrop-fi
+  #dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 12px);width:calc(100% - 24px);max-width:820px;background:rgba(250,245,232,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:24px;padding:8px 14px 10px;box-shadow:0 6px 24px rgba(60,50,30,.18);color:#4a4036;text-align:center}
+  #dock .hint{font-size:11px;letter-spacing:.08em;opacity:.7;margin-bottom:6px}
+  #dock .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+  .pill{border:1.5px solid rgba(74,64,54,.25);background:rgba(255,255,255,.55);color:#4a4036;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+  .pill.on{background:#f8d7d2;color:#c83e2b;border-color:#c83e2b}
+  #time{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#4a4036}
+  #tClock{min-width:42px;font-variant-numeric:tabular-nums}
+  #tRange{-webkit-appearance:none;appearance:none;width:120px;height:4px;border-radius:2px;background:rgba(74,64,54,.25);outline:none}
+  #tRange::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#c83e2b;border:2px solid #fff;cursor:pointer}
+  #tRange::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#c83e2b;border:2px solid #fff;cursor:pointer}
+  #legend{display:none}
+  .card{position:fixed;background:rgba(252,249,242,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.8);border-radius:20px;box-shadow:0 6px 24px rgba(60,50,30,.16);color:#3d342b}
+  #main{left:12px;top:calc(env(safe-area-inset-top,0px) + 12px);width:320px;max-width:calc(100% - 24px);padding:14px 16px}
+  #main .sm{font-size:11px;letter-spacing:.18em;color:#8a7d6e}
+  #main h1{font-size:26px;font-weight:800;margin:2px 0 6px;letter-spacing:.04em;padding-right:30px}
+  #main h1 b{color:#c83e2b}
+  #main p{font-size:13px;line-height:1.7;color:#5a4e42;margin:0 0 10px}
+  #main.col .bd,#log.col ul,#log.col .ft{display:none}
+  .cbtn{position:absolute;top:10px;right:12px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(74,64,54,.2);background:#fff;cursor:pointer;font-size:12px;color:#4a4036;line-height:1}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{display:inline-flex;align-items:center;gap:6px;border:1.5px solid rgba(74,64,54,.2);background:#fff;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;cursor:pointer;color:#3d342b}
+  .chip i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .chip.off{opacity:.4}
+  .chip.on{background:#f8d7d2;border-color:#c83e2b;color:#c83e2b}
+  #log{left:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 120px);width:320px;max-width:calc(100% - 24px);padding:10px 14px}
+  #log .hd{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;padding-right:34px}
+  #log .live{margin-left:auto;color:#c83e2b;font-size:11px}
+  #log ul{list-style:none;margin:8px 0 6px;padding:0;max-height:170px;overflow-y:auto}
+  #log li{font-size:12px;line-height:1.6;padding:4px 0;border-bottom:1px dashed rgba(74,64,54,.15);cursor:pointer}
+  #log li b{color:#c83e2b;font-variant-numeric:tabular-nums;margin-right:6px}
+  #log .ft{font-size:10px;color:#8a7d6e}
+  #mode{position:fixed;right:12px;top:calc(env(safe-area-inset-top,0px) + 12px);display:flex;background:rgba(252,249,242,.94);border-radius:999px;padding:3px;box-shadow:0 4px 16px rgba(60,50,30,.16)}
+  #mode button{border:0;background:transparent;border-radius:999px;padding:5px 16px;font-size:13px;font-weight:700;color:#4a4036;cursor:pointer}
+  #mode button.on{background:#f8d7d2;color:#c83e2b}
+  #pol{right:12px;top:calc(env(safe-area-inset-top,0px) + 56px);width:320px;max-width:calc(100% - 24px);max-height:calc(100% - 210px);overflow-y:auto;padding:14px 16px;display:none}
+  body.pol #pol{display:block}
+  @media(max-width:640px){#info{display:none}#log{bottom:calc(env(safe-area-inset-bottom,0px) + 150px)}#pol{max-height:46vh}body.pol #main,body.pol #log{display:none}}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="main" class="card">
+  <button class="cbtn" id="mainTog">∧</button>
+  <div class="sm">CHIAYI CITY · 23.48°N</div>
+  <h1>嘉義市動態島 <b>18</b></h1>
+  <div class="bd"><p>從北門驛的林鐵到蘭潭的水，一格一個地方。點一格，看它和哪些地方連在一起。</p><div class="chips" id="chips"></div></div>
+</div>
+<div id="log" class="card">
+  <button class="cbtn" id="logTog">∧</button>
+  <div class="hd">CITY LOG · 城市日誌 <span class="live">● LIVE</span></div>
+  <ul id="logList"></ul>
+  <div class="ft">日誌為依時段生成的情境示意，不是即時資料。</div>
+</div>
+<div id="mode"><button id="mAll" class="on">全景</button><button id="mPol">政見</button></div>
+<div id="pol" class="card"></div>
+<div id="legend"></div>
+<div id="info">點擊地標或名牌以高亮</div>
+<div id="dock">
+  <div class="hint">拖曳旋轉 · 滾輪縮放 · 點一格開始探索</div>
+  <div class="row">
+    <button class="pill" id="bLabel">▭ 名牌</button>
+    <button class="pill" id="bLink">☍ 連結線</button>
+    <button class="pill" id="bRail">🚆 林鐵</button>
+    <button class="pill" id="bRot">↻ 自轉</button>
+    <button class="pill" id="bTop">⊕ 鳥瞰</button>
+    <div id="time"><span id="tClock">10:05</span><input id="tRange" type="range" min="360" max="1380" step="5" value="605"><button class="pill" id="bPlay">▶</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+const CATS={
+  rail:{n:'林業鐵道',c:'#d4822a'},
+  old:{n:'舊城滋味',c:'#d15b3e'},
+  park:{n:'公園綠水',c:'#3b8a5a'},
+  art:{n:'藝文再生',c:'#7859b8'},
+  city:{n:'城市發展',c:'#6b6057'}
+};
+const S=1.5; // 格距
+const stage=document.getElementById('stage');
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0xbceeff);
+scene.fog=new THREE.Fog(0xbceeff,40,80);
+const camera=new THREE.PerspectiveCamera(40,1,0.1,200);
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+stage.appendChild(renderer.domElement);
+
+// 光源
+scene.add(new THREE.AmbientLight(0xfff4e0,0.65));
+scene.add(new THREE.HemisphereLight(0xffffff,0xe8d6b0,0.25));
+const sun=new THREE.DirectionalLight(0xfff1d6,0.85);
+sun.position.set(10,18,8);
+sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048);
+Object.assign(sun.shadow.camera,{left:-14,right:14,top:14,bottom:-14,near:1,far:50});
+sun.shadow.bias=-0.0005;
+scene.add(sun);
+
+const island=new THREE.Group();
+scene.add(island);
+
+// 工具
+const mat=c=>new THREE.MeshLambertMaterial({color:c});
+function add(g,geo,c,x,y,z,o){
+  const m=new THREE.Mesh(geo,mat(c));
+  m.position.set(x||0,y||0,z||0);
+  if(o){ if(o.ry)m.rotation.y=o.ry; if(o.rz)m.rotation.z=o.rz; if(o.rx)m.rotation.x=o.rx; if(o.s)m.scale.set(o.s[0],o.s[1],o.s[2]); }
+  m.castShadow=true;m.receiveShadow=true;
+  g.add(m);return m;
+}
+const B=(w,h,d)=>new THREE.BoxGeometry(w,h,d);
+const C=(rt,rb,h,s)=>new THREE.CylinderGeometry(rt,rb,h,s||24);
+const roof=(g,w,h,c,x,y,z)=>add(g,new THREE.ConeGeometry(w*0.72,h,4),c,x,y,z,{ry:Math.PI/4});
+
+// 底座
+const base=new THREE.Mesh(C(11,11,1,64),mat(0xd9b88c));
+base.position.y=-0.5;base.receiveShadow=true;base.castShadow=true;
+island.add(base);
+
+// 地標資料 [名稱,分類,gx,gz,高度,建構函式]
+const L=[];
+function lm(name,cat,x,z,h,fn){L.push({name,cat,x,z,h,fn});}
+
+lm('北門驛','rail',-2,-3,1.9,g=>{
+  add(g,B(1.2,0.5,0.7),0x9a6a3c,0,0.25,0);
+  roof(g,1.2,0.5,0x5a3a22,0,0.75,0);
+  add(g,B(0.3,0.9,0.3),0x8a5a30,0.4,0.7,0.2);
+  roof(g,0.3,0.3,0x5a3a22,0.4,1.3,0.2);
+});
+lm('玉山旅社','rail',-4,-1,1.8,g=>{
+  add(g,B(0.9,0.5,0.7),0xb88a56,0,0.25,0);
+  add(g,B(0.8,0.4,0.6),0xc99a64,0,0.7,0);
+  roof(g,0.9,0.45,0x4a3a30,0,1.12,0);
+});
+lm('阿里山林業鐵路車庫園區','rail',-5,-3,1.5,g=>{
+  add(g,C(0.6,0.6,1.1,20),0x8a5a30,0,0.55,0,{rz:Math.PI/2,s:[1,1,0.9]}).scale.set(0.6,1,1);
+  add(g,B(1.2,0.5,0.9),0xa87848,0,0.25,0);
+  add(g,B(1.3,0.05,0.12),0x555555,0,0.03,0.7);
+  add(g,B(1.3,0.05,0.12),0x555555,0,0.03,-0.7);
+});
+lm('檜意森活村','rail',-3,-5,1.4,g=>{
+  [[-0.4,-0.3],[0.35,-0.3],[0,0.35]].forEach(p=>{
+    add(g,B(0.5,0.35,0.4),0xc08a52,p[0],0.18,p[1]);
+    roof(g,0.5,0.3,0x5a3a22,p[0],0.5,p[1]);
+  });
+});
+lm('嘉義製材所','rail',-5,-1,1.3,g=>{
+  add(g,B(1.2,0.4,0.6),0x9a7048,0,0.2,0);
+  for(let i=-1;i<=1;i++) add(g,B(0.36,0.25,0.62),0xb0b0a0,i*0.4,0.52,0,{});
+  for(let i=0;i<3;i++) add(g,C(0.1,0.1,0.5,10),0xc79a5e,-0.5+i*0.2,0.1,0.6,{rz:Math.PI/2});
+});
+
+lm('中央噴水池','old',0,0,1.5,g=>{
+  add(g,C(0.7,0.75,0.2,32),0xdddddd,0,0.1,0);
+  add(g,C(0.6,0.6,0.22,32),0x6fc3e8,0,0.12,0);
+  add(g,C(0.07,0.1,0.6,12),0xeeeeee,0,0.45,0);
+  add(g,new THREE.SphereGeometry(0.14,16,12),0xbfe9ff,0,0.85,0);
+});
+lm('文化路夜市','old',2,0,1.2,g=>{
+  const cs=[0xe0584a,0xf2b84b,0xe0584a,0xf2b84b];
+  cs.forEach((c,i)=>{
+    const x=-0.5+i*0.33;
+    add(g,B(0.28,0.2,0.4),0x8a6a50,x,0.1,0.25);
+    add(g,B(0.3,0.05,0.45),c,x,0.34,0.25);
+    add(g,B(0.28,0.2,0.4),0x8a6a50,x,0.1,-0.25);
+    add(g,B(0.3,0.05,0.45),c,x,0.34,-0.25);
+  });
+});
+lm('東市場','old',3,-2,1.2,g=>{
+  add(g,B(1.2,0.4,0.8),0xe8d4a8,0,0.2,0);
+  roof(g,1.2,0.4,0xc2553e,0,0.6,0).scale.set(1.15,1,0.8);
+});
+lm('嘉義城隍廟','old',1,-2,1.5,g=>{
+  add(g,B(0.9,0.4,0.7),0xc0392b,0,0.2,0);
+  roof(g,0.95,0.4,0xa82820,0,0.6,0);
+  roof(g,0.5,0.3,0xd9a22a,0,0.95,0);
+});
+
+lm('嘉義公園・射日塔','park',3,-4,3.0,g=>{
+  add(g,C(0.18,0.3,1.8,20),0xefe6d0,0,0.9,0);
+  add(g,C(0.3,0.2,0.2,20),0xcfc4a8,0,1.85,0);
+  add(g,new THREE.ConeGeometry(0.22,0.35,20),0x3b8a5a,0,2.1,0);
+});
+lm('蘭潭','park',4,4,1.0,g=>{
+  add(g,B(1.4,0.12,1.4),0x6ec6ea,0,0.06,0);
+  add(g,new THREE.ConeGeometry(0.12,0.3,8),0x4a9a5a,-0.6,0.15,-0.6);
+  add(g,new THREE.ConeGeometry(0.12,0.3,8),0x4a9a5a,0.6,0.15,0.55);
+});
+lm('嘉義市立棒球場','park',5,-2,1.3,g=>{
+  add(g,C(0.7,0.7,0.1,32),0x5db25a,0,0.05,0);
+  add(g,new THREE.CylinderGeometry(0.75,0.75,0.3,32,1,true),0xe8e0cc,0,0.2,0).material.side=THREE.DoubleSide;
+  add(g,B(0.25,0.02,0.25),0xd9b88c,0,0.11,0,{ry:Math.PI/4});
+});
+
+lm('森林之歌','art',-1,-4,1.9,g=>{
+  add(g,new THREE.SphereGeometry(0.6,24,16),0xc99a64,0,0.3,0,{s:[1.15,1,0.9]});
+  add(g,C(0.3,0.3,0.1,16),0x8a5a30,0,0.05,0);
+});
+lm('嘉義市立美術館','art',1,-5,1.3,g=>{
+  add(g,B(1.1,0.5,0.5),0xb5503a,0,0.25,0.2);
+  add(g,B(0.5,0.5,0.6),0xa84a35,-0.3,0.25,-0.4);
+  add(g,B(1.15,0.06,0.55),0xe8dcc4,0,0.53,0.2);
+});
+lm('嘉義舊監獄','art',-1,-1,1.5,g=>{
+  add(g,C(0.7,0.7,0.35,8),0xa89a88,0,0.18,0).material.side=THREE.DoubleSide;
+  add(g,C(0.55,0.55,0.3,8),0xc4b8a0,0,0.2,0);
+  add(g,C(0.15,0.15,0.9,8),0x8a7a68,0.55,0.45,0.55);
+  roof(g,0.3,0.25,0x6a4a3a,0.55,1.0,0.55);
+});
+lm('嘉義文化創意產業園區','art',-2,2,1.6,g=>{
+  for(let i=-1;i<=1;i++){
+    add(g,B(0.4,0.35,0.9),0xcbb08a,i*0.45,0.18,0);
+    roof(g,0.4,0.25,0x7859b8,i*0.45,0.48,0);
+  }
+  add(g,C(0.07,0.09,0.9,10),0x8a4a3a,0.7,0.45,-0.5);
+});
+lm('交趾陶館','art',0,-3,1.3,g=>{
+  add(g,B(0.7,0.4,0.55),0xf0d8a8,0,0.2,0);
+  roof(g,0.8,0.35,0x2e9a8a,0,0.55,0);
+  add(g,B(0.2,0.12,0.2),0xe0584a,0,0.9,0);
+});
+
+lm('嘉義車站','city',0,2,1.8,g=>{
+  add(g,B(1.1,0.45,0.6),0xe6dfd0,0,0.22,0);
+  add(g,B(0.3,0.9,0.3),0xd0c8b8,0,0.45,0);
+  add(g,B(0.34,0.06,0.34),0x6b6057,0,0.93,0);
+});
+lm('嘉義市政府','city',2,2,1.8,g=>{
+  add(g,B(0.9,0.4,0.6),0xcfd4d6,0,0.2,0);
+  add(g,B(0.5,1.0,0.45),0xb8c2c6,0.1,0.5,0);
+  add(g,B(0.52,0.06,0.47),0x6b6057,0.1,1.03,0);
+});
+lm('往高鐵嘉義站','city',-4,5,1.4,g=>{
+  add(g,B(1.4,0.06,0.3),0x666666,0,0.03,0.6);
+  add(g,B(1.2,0.3,0.6),0xe8e8ee,0,0.2,-0.1);
+  add(g,B(1.3,0.08,0.7),0xf26b3a,0,0.42,-0.1,{rz:0.05});
+});
+lm('北港路・後湖工業區','city',-5,3,1.7,g=>{
+  add(g,B(0.6,0.35,0.5),0x9a9488,-0.3,0.18,0);
+  add(g,B(0.5,0.3,0.5),0xaaa498,0.35,0.15,-0.2);
+  add(g,C(0.07,0.09,0.9,10),0x7a5a4a,-0.45,0.65,0.1);
+  add(g,C(0.07,0.09,0.7,10),0x7a5a4a,0.4,0.55,-0.2);
+});
+
+const lmMap={};
+L.forEach(d=>lmMap[d.x+','+d.z]=d);
+
+// 棋盤
+const R=6.6;
+let seed=7;
+const rnd=()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646;};
+const tileGeo=B(S*0.96,0.3,S*0.96);
+for(let x=-7;x<=7;x++)for(let z=-7;z<=7;z++){
+  if(Math.hypot(x,z)>R)continue;
+  const t=new THREE.Mesh(tileGeo,mat(((x+z)&1)?0xcbe096:0xf2ebd9));
+  t.position.set(x*S,0.15,z*S);t.receiveShadow=true;t.castShadow=true;
+  island.add(t);
+  if(lmMap[x+','+z])continue;
+  const r=rnd();
+  if(r<0.16){
+    const g=new THREE.Group();g.position.set(x*S+(rnd()-.5)*.3,0.3,z*S+(rnd()-.5)*.3);
+    add(g,B(0.38,0.3,0.34),0xffffff,0,0.15,0);
+    add(g,new THREE.ConeGeometry(0.3,0.18,4),0xe9e3d3,0,0.39,0,{ry:Math.PI/4});
+    g.rotation.y=Math.floor(rnd()*4)*Math.PI/2;
+    island.add(g);
+  }else if(r<0.38){
+    const g=new THREE.Group();g.position.set(x*S+(rnd()-.5)*.4,0.3,z*S+(rnd()-.5)*.4);
+    add(g,C(0.04,0.05,0.18,8),0x8a6a40,0,0.09,0);
+    add(g,new THREE.ConeGeometry(0.2,0.5,10),0x4fa05a,0,0.43,0);
+    g.scale.setScalar(0.8+rnd()*0.5);
+    island.add(g);
+  }
+}
+
+// 建立地標
+const labelsEl=document.createElement('div');
+labelsEl.style.cssText='position:fixed;inset:0;pointer-events:none;overflow:hidden';
+document.body.appendChild(labelsEl);
+const items=[];
+L.forEach(d=>{
+  const g=new THREE.Group();
+  g.position.set(d.x*S,0.3,d.z*S);
+  // 分類色底盤
+  add(g,C(0.78,0.78,0.04,32),CATS[d.cat].c,0,0.02,0).castShadow=false;
+  const inner=new THREE.Group();inner.position.y=0.04;g.add(inner);
+  d.fn(inner);
+  island.add(g);
+  const el=document.createElement('div');
+  el.className='tag';el.textContent=d.name;
+  el.style.setProperty('--c',CATS[d.cat].c);
+  el.style.pointerEvents='auto';
+  labelsEl.appendChild(el);
+  const meshes=[];g.traverse(o=>{if(o.isMesh){o.userData.lm=d;meshes.push(o);}});
+  d.group=g;d.el=el;d.meshes=meshes;d.baseY=g.position.y;
+  el.addEventListener('click',e=>{e.stopPropagation();select(d);});
+  items.push(d);
+});
+
+// 選取高亮
+let sel=null;
+const info=document.getElementById('info');
+function select(d){
+  if(sel){sel.meshes.forEach(m=>m.material.emissive&&m.material.emissive.setHex(0));sel.el.classList.remove('on');sel.group.position.y=sel.baseY;}
+  sel=(sel===d)?null:d;
+  if(sel){
+    sel.meshes.forEach(m=>m.material.emissive.setHex(0x333322));
+    sel.el.classList.add('on');
+    info.innerHTML='<b>'+sel.name+'</b><br><span style="color:'+CATS[sel.cat].c+'">● '+CATS[sel.cat].n+'</span>';
+  }else info.textContent='點擊地標或名牌以高亮';
+}
+
+// 圖例
+document.getElementById('legend').innerHTML=Object.values(CATS).map(c=>'<div><i style="background:'+c.c+'"></i>'+c.n+'</div>').join('');
+
+// 相機控制（拖曳旋轉、滾輪縮放）
+let theta=0.6,phi=0.95,dist=26,tTheta=theta,tPhi=phi,tDist=dist;
+let down=false,moved=0,lx=0,ly=0;
+const pts=new Map();let pinch=0;
+stage.addEventListener('pointerdown',e=>{
+  stage.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);
+  down=true;moved=0;lx=e.clientX;ly=e.clientY;
+});
+stage.addEventListener('pointermove',e=>{
+  if(!pts.has(e.pointerId))return;
+  pts.set(e.pointerId,[e.clientX,e.clientY]);
+  if(pts.size===2){
+    const a=[...pts.values()];const d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);
+    if(pinch)tDist=Math.min(42,Math.max(10,tDist*pinch/d));
+    pinch=d;moved=99;return;
+  }
+  const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;
+  moved+=Math.abs(dx)+Math.abs(dy);
+  tTheta-=dx*0.006;
+  tPhi=Math.min(1.45,Math.max(0.35,tPhi-dy*0.005));
+});
+const ray=new THREE.Raycaster(),mv=new THREE.Vector2();
+stage.addEventListener('pointerup',e=>{
+  pts.delete(e.pointerId);pinch=0;
+  if(moved<5){
+    mv.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);
+    ray.setFromCamera(mv,camera);
+    const hit=ray.intersectObjects(island.children,true).find(h=>h.object.userData.lm);
+    if(hit)select(hit.object.userData.lm);
+    else if(sel)select(sel);
+  }
+});
+stage.addEventListener('wheel',e=>{
+  e.preventDefault();
+  tDist=Math.min(42,Math.max(10,tDist*(1+e.deltaY*0.001)));
+},{passive:false});
+
+// ===== 第 2 階段：林鐵、連結線、Dock =====
+let showLabels=true;
+const Y0=0.3;
+const railGroup=new THREE.Group();island.add(railGroup);
+const track=new THREE.CatmullRomCurve3([[-4.3,-2.2],[-2,-2],[-0.5,-2.2],[0.6,-1.2],[2.4,-1],[4,-0.8],[4.5,1],[3.7,2.8],[1.2,3.2],[-1.5,3],[-3.2,1.2],[-4.4,-0.2]].map(p=>new THREE.Vector3(p[0]*S,Y0,p[1]*S)),true,'catmullrom',0.5);
+const NS=400,rl=[],rr=[];
+for(let i=0;i<NS;i++){
+  const u=i/NS,p=track.getPointAt(u),tg=track.getTangentAt(u),nx=tg.z,nz=-tg.x;
+  rl.push(new THREE.Vector3(p.x+nx*0.11,Y0+0.07,p.z+nz*0.11));
+  rr.push(new THREE.Vector3(p.x-nx*0.11,Y0+0.07,p.z-nz*0.11));
+}
+[rl,rr].forEach(a=>{
+  const m=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(a,true),NS,0.022,6,true),mat(0x777777));
+  m.castShadow=true;railGroup.add(m);
+});
+const len=track.getLength(),NSL=Math.floor(len/0.14);
+const sl=new THREE.InstancedMesh(B(0.34,0.05,0.09),mat(0x8a5a30),NSL);
+const dm=new THREE.Object3D();
+for(let i=0;i<NSL;i++){
+  const u=i/NSL,p=track.getPointAt(u),tg=track.getTangentAt(u);
+  dm.position.set(p.x,Y0+0.03,p.z);dm.rotation.y=Math.atan2(tg.x,tg.z);dm.updateMatrix();sl.setMatrixAt(i,dm.matrix);
+}
+sl.castShadow=true;sl.receiveShadow=true;railGroup.add(sl);
+const cars=[];
+function mk(loco){
+  const g=new THREE.Group();
+  if(loco){add(g,B(0.22,0.16,0.4),0xd13b2b,0,0.14,0.02);add(g,B(0.24,0.1,0.2),0xb82f22,0,0.27,-0.1);add(g,C(0.04,0.05,0.14,10),0x333333,0,0.3,0.12);add(g,B(0.2,0.03,0.46),0x444444,0,0.05,0);}
+  else{add(g,B(0.22,0.14,0.34),0xc83e2b,0,0.13,0);add(g,B(0.24,0.03,0.36),0xf2ebd9,0,0.22,0);add(g,B(0.2,0.03,0.4),0x444444,0,0.05,0);}
+  railGroup.add(g);cars.push(g);
+}
+mk(true);mk();mk();
+const gap=0.46/len;
+
+const linkGroup=new THREE.Group();island.add(linkGroup);
+const F=s=>items.find(d=>d.name.includes(s));
+const LK='北門-玉山,北門-車庫,玉山-製材,製材-車庫,車庫-檜意,檜意-北門,北門-森林,森林-交趾,交趾-城隍,城隍-東市,城隍-噴水,噴水-夜市,噴水-監獄,噴水-車站,車站-市政,車站-文化創意,夜市-市政,東市-射日,射日-棒球,射日-美術,美術-森林,棒球-東市,蘭潭-市政,蘭潭-車站,文化創意-北港,北港-高鐵,高鐵-文化創意,玉山-監獄,監獄-交趾'.split(',');
+const lines=[];
+LK.forEach(s=>{
+  const [a,b]=s.split('-').map(F);if(!a||!b)return;
+  (a.nb=a.nb||[]).push(b);(b.nb=b.nb||[]).push(a);
+  const A=a.group.position,Bp=b.group.position,dist=A.distanceTo(Bp),pts2=[];
+  for(let i=0;i<=32;i++){const t=i/32,p=A.clone().lerp(Bp,t);p.y=0.7+Math.sin(Math.PI*t)*(0.35+dist*0.1);pts2.push(p);}
+  const ln=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts2),new THREE.LineDashedMaterial({color:0xb5503a,dashSize:0.16,gapSize:0.12,transparent:true,opacity:0.75}));
+  ln.computeLineDistances();ln.userData={a,b};linkGroup.add(ln);lines.push(ln);
+});
+
+let appliedSel,autoRot=false,playing=false,minutes=605,lastT=0;
+const $=id=>document.getElementById(id);
+function toggler(id,fn,init){
+  const b=$(id);b.classList.toggle('on',init);
+  b.onclick=()=>{const v=!b.classList.contains('on');b.classList.toggle('on',v);fn(v);};
+}
+toggler('bLabel',v=>{showLabels=v;},true);
+toggler('bLink',v=>{linkGroup.visible=v;},true);
+toggler('bRail',v=>{railGroup.visible=v;},true);
+toggler('bRot',v=>{autoRot=v;},false);
+toggler('bTop',v=>{tPhi=v?0.38:0.95;tDist=v?30:26;},false);
+
+const stops=[[6,'#ffc9a8'],[8,'#cdeeff'],[10,'#bceeff'],[16,'#bceeff'],[18.5,'#f7a76d'],[20.5,'#2f3d73'],[23,'#0f1a3a']].map(s=>[s[0],new THREE.Color(s[1])]);
+const amb=scene.children.find(o=>o.isAmbientLight);
+const p2=n=>String(n).padStart(2,'0');
+function applyTime(){
+  const h=minutes/60;let i=0;
+  while(i<stops.length-2&&h>stops[i+1][0])i++;
+  const a=stops[i],b=stops[i+1],k=Math.min(1,Math.max(0,(h-a[0])/(b[0]-a[0])));
+  const c=a[1].clone().lerp(b[1],k);
+  scene.background.copy(c);scene.fog.color.copy(c);
+  const ang=(h-6)/14.5*Math.PI,day=Math.max(0,Math.sin(ang)),f=Math.min(1,day*1.6);
+  sun.position.set(-Math.cos(ang)*16,Math.max(3,Math.sin(ang)*18),8);
+  sun.intensity=0.1+0.8*f;
+  sun.color.setHex(day<0.35?0xffb98a:0xfff1d6);
+  amb.intensity=0.3+0.35*f;
+  const m=Math.floor(minutes);
+  $('tClock').textContent=p2(Math.floor(m/60))+':'+p2(m%60);
+  $('tRange').value=minutes;
+  if(typeof renderLog==='function')renderLog();
+}
+$('tRange').oninput=e=>{minutes=+e.target.value;applyTime();};
+$('bPlay').onclick=()=>{playing=!playing;$('bPlay').textContent=playing?'⏸':'▶';$('bPlay').classList.toggle('on',playing);};
+applyTime();
+
+function update2(t){
+  const dt=Math.min(50,t-lastT);lastT=t;
+  if(autoRot&&pts.size===0)tTheta+=dt*0.00012;
+  if(playing){minutes+=dt*0.02;if(minutes>1380)minutes=360;applyTime();}
+  if(railGroup.visible){
+    const u=(t/1000*0.9/len)%1;
+    cars.forEach((g,i)=>{
+      const q=((u-i*gap)%1+1)%1,p=track.getPointAt(q),tg=track.getTangentAt(q);
+      g.position.set(p.x,Y0+0.08,p.z);g.rotation.y=Math.atan2(tg.x,tg.z);
+    });
+  }
+  if(sel!==appliedSel){
+    items.forEach(d=>{d.el.classList.remove('nb');if(d!==sel)d.meshes.forEach(m=>m.material.emissive.setHex(0));});
+    if(sel)(sel.nb||[]).forEach(n=>{n.el.classList.add('nb');n.meshes.forEach(m=>m.material.emissive.setHex(0x331a14));});
+    lines.forEach(l=>{
+      const hit=sel&&(l.userData.a===sel||l.userData.b===sel);
+      l.material.color.setHex(hit?0xe0301a:0xb5503a);
+      l.material.opacity=sel?(hit?1:0.18):0.75;
+      l.renderOrder=hit?2:0;
+    });
+    appliedSel=sel;
+  }
+}
+
+// ===== 第 3 階段：卡片、日誌、政見模式 =====
+const catOn={};Object.keys(CATS).forEach(k=>catOn[k]=true);
+$('chips').innerHTML=Object.keys(CATS).map(k=>'<span class="chip" data-k="'+k+'" style="--c:'+CATS[k].c+'"><i></i>'+CATS[k].n+'</span>').join('');
+function applyCats(){
+  document.querySelectorAll('#chips .chip').forEach(c=>c.classList.toggle('off',!catOn[c.dataset.k]));
+  items.forEach(d=>{const on=catOn[d.cat];d.meshes.forEach(m=>{m.material.transparent=!on;m.material.opacity=on?1:0.25;m.material.needsUpdate=true;});});
+  lines.forEach(l=>{l.visible=catOn[l.userData.a.cat]&&catOn[l.userData.b.cat];});
+}
+$('chips').onclick=e=>{
+  const c=e.target.closest('.chip');if(!c)return;
+  const k=c.dataset.k,keys=Object.keys(CATS),allOn=keys.every(x=>catOn[x]);
+  if(allOn)keys.forEach(x=>{catOn[x]=x===k;});
+  else{catOn[k]=!catOn[k];if(!keys.some(x=>catOn[x]))keys.forEach(x=>{catOn[x]=true;});}
+  applyCats();
+};
+function colTog(btn,el){btn.onclick=()=>{const c=el.classList.toggle('col');btn.textContent=c?'∨':'∧';};}
+colTog($('mainTog'),$('main'));colTog($('logTog'),$('log'));
+if(innerWidth<640){['main','log'].forEach(k=>$(k).classList.add('col'));$('mainTog').textContent='∨';$('logTog').textContent='∨';}
+
+var LOGS=[
+[375,'射日','晨跑的人繞著射日塔，空氣還帶點涼。'],
+[400,'東市','攤商掀開鐵門，早市的第一鍋熱湯已經冒煙。'],
+[440,'車站','通勤的人潮湧出月台，往城裡四散。'],
+[470,'美術','館員拉開紅磚外牆旁的大門，準備迎接開館。'],
+[510,'製材','老木料的香氣隨著蒸汽慢慢散開。'],
+[545,'車庫','車庫裡的蒸汽火車正在做出發前的保養。'],
+[570,'文化創意','市集的攤位陸續擺好，文創小物排成一列。'],
+[593,'北門','林鐵列車從北門驛出發，往山的方向。'],
+[599,'檜意','檜木官舍的緣側坐滿了拍照的旅人。'],
+[630,'交趾','師傅在窗邊細細描繪一片陶片的釉色。'],
+[680,'城隍','香煙裊裊，信眾在殿前低聲祈願。'],
+[730,'噴水','圓環旁的雞肉飯店前排起了長長的隊伍。'],
+[810,'市政','午後的公文與咖啡，辦公室安靜下來。'],
+[860,'監獄','導覽員帶著旅人走過斐狀的監舍。'],
+[940,'蘭潭','湖面泛著金光，單車騎士沿著環湖步道緩行。'],
+[1010,'棒球','球員在場邊暖身，看台漸漸坐滿。'],
+[1060,'玉山','檜木老旅社的窗前，旅人翻著明天的行程。'],
+[1110,'夜市','攤販點起燈，小吃的香氣飄滿了街口。'],
+[1160,'森林','巨蛋裡傳來排練的樂聲。'],
+[1210,'高鐵','末班接駁車載著旅人往高鐵站的方向駛去。'],
+[1275,'北港','夜班的燈還亮著，機器聲低低地響。'],
+[1320,'車站','夜車進站，月台上只剩零星的旅人。'],
+[1360,'射日','塔頂的燈亮起，整座城慢慢安靜下來。']
+];
+var logKey=-1;
+function renderLog(){
+  if(!LOGS)return;
+  const e=LOGS.filter(x=>x[0]<=minutes);
+  if(e.length===logKey)return;logKey=e.length;
+  $('logList').innerHTML=e.slice(-12).reverse().map(x=>{const d=F(x[1]);return '<li data-k="'+x[1]+'"><b>'+p2(Math.floor(x[0]/60))+':'+p2(x[0]%60)+'</b>'+(d?d.name:x[1])+'：'+x[2]+'</li>';}).join('')||'<li>這個時段還很安靜。</li>';
+}
+$('logList').onclick=e=>{const li=e.target.closest('li');if(!li||!li.dataset.k)return;const d=F(li.dataset.k);if(d&&sel!==d)select(d);};
+
+// 政見模式：資料來自公開新聞，依號次排列，各候選人格式一致
+const CAND=[
+ {n:'王義成',p:'無黨籍',c:0xe0a526,items:[{t:'目前公開報導中未見具體政見'}]},
+ {n:'陳愷璜',p:'無黨籍',c:0x9b59d0,items:[
+  {lm:'市政',t:'打造「數位孿生城市」，串連都市規劃、交通管理、公共服務與文化資產保存'},
+  {lm:'美術',t:'發展美學產業與知識經濟，吸引青年返鄉'},
+  {t:'主張 65 歲以上仍有生產力，應善用年長人才'}]},
+ {n:'張啓楷',p:'民眾黨（藍白共推）',c:0xe8743b,items:[
+  {lm:'高鐵',t:'爭取輕軌由高鐵嘉義站延伸至嘉義火車站，要求中央核定並負擔經費'},
+  {lm:'北港',t:'加速北港路沿線產業廊道開發'},
+  {lm:'市政',t:'生育獎勵金：第一胎 5 萬、第二胎 10 萬、第三胎 20 萬；0 至 6 歲每年 2 萬元生日禮金'},
+  {lm:'市政',t:'65 歲以上長者健保費由市府全額負擔；敬老卡加碼（計程車補助等）'},
+  {t:'加碼補助營養午餐、智慧教室、校園安全'}]},
+ {n:'王美惠',p:'民主進步黨',c:0xd94f8c,items:[
+  {lm:'車站',t:'鐵路高架化：市府需自籌約 38 億元，主張與中央協商減輕負擔或爭取等值補償'},
+  {lm:'高鐵',t:'高鐵聯外輕軌回歸專業評估，先改善高鐵嘉義站與市區的轉乘'},
+  {lm:'市政',t:'建立全齡照顧體系：擴大長者居家安全補助，健保費與假牙補助評估後逐步放寬'},
+  {t:'加碼營養午餐經費、兒童圖書館與社區運動據點；爭取衛福部嘉義醫院長照大樓（約 18 億元）；把握台積電進駐效益'}]},
+ {n:'黃宏成台灣阿成世界偉人財神總統',p:'無黨籍',c:0x6b7a8f,items:[{t:'目前公開報導中未見具體政見'}]}
+];
+let polMode=false,candF=-1;
+const hx=c=>'#'+c.toString(16).padStart(6,'0');
+const dgrp=new THREE.Group();island.add(dgrp);
+const dia=[];
+CAND.forEach((c,ci)=>{
+  const by={};c.items.forEach(it=>{if(it.lm)(by[it.lm]=by[it.lm]||[]).push(it.t);});
+  Object.keys(by).forEach(k=>{
+    const d=F(k);if(!d)return;
+    const m=new THREE.Mesh(new THREE.OctahedronGeometry(0.2),new THREE.MeshLambertMaterial({color:c.c,emissive:c.c,emissiveIntensity:0.25}));
+    m.scale.y=1.5;m.castShadow=true;m.visible=false;dgrp.add(m);
+    dia.push({m,d,ci,a:ci*Math.PI*2/5});
+  });
+});
+function updDia(){dia.forEach(x=>{const s=polMode&&(candF<0||candF===x.ci);x.m.visible=s;x.m.userData.lm=s?x.d:null;});}
+function update3(t){
+  if(!polMode)return;
+  dia.forEach(x=>{
+    if(!x.m.visible)return;const p=x.d.group.position;
+    x.m.position.set(p.x+Math.cos(x.a)*0.42,p.y+x.d.h-0.15+Math.sin(t*0.003+x.ci)*0.08,p.z+Math.sin(x.a)*0.42);
+    x.m.rotation.y=t*0.002+x.ci;
+  });
+}
+function renderPol(){
+  const ch=(i,t)=>'<span class="chip'+(candF===i?' on':'')+'" data-i="'+i+'">'+t+'</span>';
+  let h='<div style="font-size:16px;font-weight:700">嘉義市長候選人</div><div style="font-size:11px;color:#8a7d6e;margin:2px 0 8px">投票日 2026/11/28 · 依號次排列</div><div class="chips" id="cf">'+ch(-1,'全部')+CAND.map((c,i)=>ch(i,'<i style="background:'+hx(c.c)+';border-radius:0;transform:rotate(45deg)"></i>'+(i+1)+' '+c.n.slice(0,3))).join('')+'</div>';
+  h+=CAND.map((c,i)=>(candF>=0&&candF!==i)?'':'<div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(74,64,54,.12)"><div style="font-size:13px;font-weight:700"><span style="color:'+hx(c.c)+'">◆</span> '+(i+1)+' 號 '+c.n+' <span style="font-weight:500;color:#8a7d6e;font-size:11px">'+c.p+'</span></div><ul style="margin:4px 0 0;padding-left:16px;font-size:12px;line-height:1.65;list-style:disc">'+c.items.map(it=>'<li'+(it.lm?' class="pl" data-k="'+it.lm+'" style="cursor:pointer"':'')+'>'+it.t+(it.lm?' <span style="color:#8a7d6e">（'+F(it.lm).name+'）</span>':'')+'</li>').join('')+'</ul></div>').join('');
+  const a=(u,t)=>'<a href="'+u+'" target="_blank" rel="noopener" style="text-decoration:underline">'+t+'</a>';
+  h+='<div style="margin-top:12px;font-size:10.5px;line-height:1.6;color:#8a7d6e">資料依公開新聞整理，僅列有公開報導的政見，依號次排列，不代表本頁立場；政見內容以候選人正式公布與選委會公告為準。菱形位置僅為政見與地標的示意對應。資料截至 2026/11/7。出處：'+a('https://www.cna.com.tw/news/aipl/202609020219.aspx','中央社')+'、'+a('https://news.ltn.com.tw/news/politics/breakingnews/5596070','自由時報')+'、'+a('https://udn.com/news/story/124652/9729458','聯合新聞網')+'、'+a('https://n.yam.com/Article/20261103422133','報新聞（蕃新聞）')+'。</div>';
+  $('pol').innerHTML=h;
+}
+$('pol').onclick=e=>{
+  const c=e.target.closest('#cf .chip');
+  if(c){candF=+c.dataset.i;renderPol();updDia();return;}
+  const li=e.target.closest('li.pl');
+  if(li){const d=F(li.dataset.k);if(d&&sel!==d)select(d);}
+};
+function setMode(p){polMode=p;$('mAll').classList.toggle('on',!p);$('mPol').classList.toggle('on',p);document.body.classList.toggle('pol',p);updDia();}
+$('mAll').onclick=()=>setMode(false);
+$('mPol').onclick=()=>setMode(true);
+renderPol();applyCats();renderLog();updDia();
+
+function resize(){
+  const w=innerWidth,h=innerHeight;
+  renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+addEventListener('resize',resize);resize();
+
+const wp=new THREE.Vector3();
+function frame(t){
+  theta+=(tTheta-theta)*0.12;phi+=(tPhi-phi)*0.12;dist+=(tDist-dist)*0.12;
+  camera.position.set(
+    dist*Math.sin(phi)*Math.sin(theta),
+    dist*Math.cos(phi),
+    dist*Math.sin(phi)*Math.cos(theta));
+  camera.lookAt(0,0.5,0);
+  update2(t);update3(t);
+  if(sel)sel.group.position.y=sel.baseY+0.12+Math.sin(t*0.005)*0.08;
+  renderer.render(scene,camera);
+  const w=innerWidth,h=innerHeight;
+  items.forEach(d=>{
+    d.group.getWorldPosition(wp);
+    wp.y+=d.h;
+    wp.project(camera);
+    const x=(wp.x*0.5+0.5)*w,y=(-wp.y*0.5+0.5)*h;
+    d.el.style.left=x+'px';d.el.style.top=y+'px';
+    d.el.style.zIndex=Math.round((1-wp.z)*1000)+(d===sel?5000:0);
+    d.el.style.display=(wp.z>1||!showLabels||!catOn[d.cat])?'none':'block';
+  });
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
